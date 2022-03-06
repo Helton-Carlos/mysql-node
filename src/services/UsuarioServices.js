@@ -1,14 +1,15 @@
-const db =require("../db")
+const db = require("../db");
 
-module.exports={
-    buscarUsuario:()=>{
-        return new Promise((aceito, rejeitado)=>{
-
-            db.query('SELECT * FROM cadastro', (error, results)=>{
-                if(error) { rejeitado(error); return; }
-                aceito(results);
-            });
-        });
-    }
-   
-}
+module.exports = {
+  buscarUsuario: () => {
+    return new Promise((aceito, rejeitado) => {
+      db.query("select * from cadastro", (error, results) => {
+        if (error) {
+          rejeitado(error);
+          return;
+        }
+        aceito(results);
+      });
+    });
+  },
+};

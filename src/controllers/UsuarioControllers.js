@@ -2,15 +2,15 @@ const UsuarioServices = require("../services/UsuarioServices")
 
 module.exports = {
     buscarUsuario: async(req,res)=>{
-        let json  = {error:'',result:[] }
-        let cadastro  = await UsuarioServices.buscarUsuario();
-        for(let i in cadastro){
-            json.result.push({
-                codigo:cadastro[i].codigo,
-                email:cadastro[i].email ,
-                senha:cadastro[i].senha,
+        let getJson  = {error:'',result:[] }
+        let cadastrar  = await UsuarioServices.buscarUsuario();
+        for(let i in cadastrar){
+            getJson.result.push({
+                codigo:cadastrar[i].codigo,
+                email:cadastrar[i].email,
+                senha:cadastrar[i].senha,
             })
         }
-        res.json(json)
+        res.json(getJson)
     } 
 }
